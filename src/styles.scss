@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 5px 0 10px 0;
+}

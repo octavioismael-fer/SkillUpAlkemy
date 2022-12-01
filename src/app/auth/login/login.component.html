@@ -1,0 +1,74 @@
+<div class="min-h-full flex">
+    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div class="mx-auto w-full max-w-sm lg:w-96">
+            <div class="text-center lg:text-left">
+                <img class="h-12 w-auto m-auto lg:m-0 " src="../../../assets/alkemyLogo.svg" alt="Workflow">
+                <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Ingresa a tu cuenta</h2>
+                <p class="mt-2 text-sm text-gray-600">
+                    Si no estas registrado, puedes
+                    <a routerLink="/auth/registro" class="font-medium text-sky-600 hover:text-sky-500"> registrarte aquí
+                    </a>
+                </p>
+            </div>
+
+            <div class="mt-6">
+                <form action="#" method="POST" [formGroup]="loginForm">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700"> Email de usuario </label>
+                        <div class="mt-1">
+                            <mat-form-field appearance="outline" class="w-full">
+                                <input matInput id="email" name="email" autocomplete="email"
+                                    class="border focus:ring-sky-500 focus:border-sky-500" type="email"
+                                    formControlName="email">
+                                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                                    El email es <strong>requerido</strong>
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+                                    El email <strong>no es valido</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label for="password" class="block text-sm font-medium text-gray-700"> Contraseña </label>
+                        <div class="mt-1">
+                            <mat-form-field appearance="outline" class="w-full">
+                                <input matInput id="password" name="password" type="password"
+                                    autocomplete="current-password" formControlName="password"
+                                    class="border focus:ring-sky-500 focus:border-sky-500">
+                                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                                    La contraseña es <strong>requerida</strong>
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+                                    Contraseña <strong>invalida</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+                <div class="flex items-center justify-between pt-1 pb-3">
+                    <mat-checkbox id="remember-me" name="remember-me" color="primary"
+                        class="ml-2 block text-sm text-gray-900" [(ngModel)]="checked">Recordar contraseña
+                    </mat-checkbox>
+
+                    <div class="text-sm">
+                        <a href="#" routerLink="/auth/reset" class="font-medium text-sky-600 hover:text-sky-500"> ¿Olvidaste la
+                            contraseña? </a>
+                    </div>
+                </div>
+
+                <div>
+                    <button [disabled]="loading" type="submit" (click)="login()" mat-raised-button color="primary"
+                        class="w-full py-1 bg-sky-700" id="btn-login">Ingresar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden lg:block relative w-0 flex-1">
+        <img class="absolute inset-0 h-full w-full object-cover" src="../../../assets/imgFondo.jpg" alt="">
+    </div>
+    <button mat-fab class="absolute left-10 lg:left-auto lg:right-10 top-10 bg-sky-600" [routerLink]="'/home'">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>

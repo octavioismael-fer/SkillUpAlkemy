@@ -1,0 +1,123 @@
+<form action="#" method="POST" class="text-center cont" [formGroup]="plazosForm">
+  <div>
+    <label for="userId" class="block text-sm font-medium text-gray-700"> Id del usuario </label>
+    <div class="mt-1">
+      <mat-form-field appearance="outline">
+        <input matInput id="userId" type="number" name="userId" autocomplete="userId"
+          class="border focus:ring-sky-500 focus:border-sky-500" type="email" formControlName="userId">
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="space-y-1">
+    <label for="accountId" class="block text-sm font-medium text-gray-700"> Id de la cuenta </label>
+    <div class="mt-1">
+      <mat-form-field appearance="outline">
+        <input matInput id="accountId" name="accountId" type="number" autocomplete="accountId"
+          formControlName="accountId" class="border focus:ring-sky-500 focus:border-sky-500">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="space-y-1">
+    <label for="password" class="block text-sm font-medium text-gray-700"> Monto </label>
+    <div class="mt-1">
+      <mat-form-field appearance="outline" >
+        <input matInput id="amount" name="amount" type="number" autocomplete="amount" formControlName="amount"
+          class="border focus:ring-sky-500 focus:border-sky-500">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="space-y-1">
+    <label for="creacionDate" class="block text-sm font-medium text-gray-700"> Fecha del plazo fijo </label>
+    <div class="mt-1">
+      <mat-form-field appearance="outline">
+        <input matInput id="creation_date" name="creation_date" type="date" autocomplete="creationDate"
+          formControlName="creation_date" class="border focus:ring-sky-500 focus:border-sky-500">
+      </mat-form-field>
+    </div>
+
+    <div class="space-y-1">
+      <label for="closing_date" class="block text-sm font-medium text-gray-700"> Cierre del plazo fijo </label>
+      <div class="mt-1">
+        <mat-form-field appearance="outline">
+          <input matInput id="closing_date" name="closing_date" type="date" autocomplete="closing_date"
+            formControlName="closing_date" class="border focus:ring-sky-500 focus:border-sky-500">
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+  <button  type="submit" (click)="PostplazosFijos()" mat-raised-button color="primary"
+  class="py-1 bg-sky-700">Crear plazo</button>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id del plazo </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="userId">
+    <th mat-header-cell *matHeaderCellDef> Id del usuario </th>
+    <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="accountId">
+    <th mat-header-cell *matHeaderCellDef> Id de la cuenta bancaria </th>
+    <td mat-cell *matCellDef="let element"> {{element.accountId}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Monto</th>
+    <td mat-cell *matCellDef="let element"> {{element.amount | currency}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="intereses">
+    <th mat-header-cell *matHeaderCellDef> Intereses</th>
+    <td mat-cell *matCellDef="let element"> {{element.interes | currency}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="closing_date">
+    <th mat-header-cell *matHeaderCellDef> Fecha cierre </th>
+    <td mat-cell *matCellDef="let element"> {{element.closing_date | date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="creation_date">
+    <th mat-header-cell *matHeaderCellDef> Fecha creacion </th>
+    <td mat-cell *matCellDef="let element"> {{element.creation_date | date}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="eliminar" >
+    <th mat-header-cell *matHeaderCellDef  > Eliminar</th>
+    <td mat-cell *matCellDef="let element" >
+        <a class="pointer" matTooltip="Eliminar plazo">
+            <mat-icon (click)="eliminarPlazo(element.id)">delete</mat-icon>
+        </a>
+    </td>
+</ng-container>
+
+  <!-- Symbol Column -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!---TABLAAAAAAAAAAAAAAAAAAAAAAAAA-->
+
+
+

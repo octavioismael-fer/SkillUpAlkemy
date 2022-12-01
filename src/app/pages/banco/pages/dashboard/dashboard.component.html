@@ -1,0 +1,46 @@
+<header class="relative overflow-hidden">
+    <div class="absolute bg-sky-600 h-32 w-full inset-0 -z-10"></div>
+    <div class="pt-4 pb-80 sm:pt-8 sm:pb-40 lg:pb-48">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+            <div class="text-3xl font-medium text-white">
+                <h1>¡Buenas tardes {{dataUsuario.first_name}} {{dataUsuario.last_name}}!</h1>
+            </div>
+            <div class="grid mt-4 sm:mt-6 gap-5 xl:grid-row-2 xl:grid-cols-3 lg:gap-5 lg:my-8">
+                <div
+                    class="px-6 bg-white rounded-lg border border-gray-200 shadow-md flex flex-col items-center divide-y">
+                    <div class="p-5">
+                        <h2 class="text-xl font-bold">Datos de usuario</h2>
+                    </div>
+                    <div class="h-full w-full py-5">
+                        <ab-profile [id]="dataUsuario.id" [email]="dataUsuario.email" [points]="dataUsuario.points"></ab-profile>
+                    </div>
+                </div>
+                <div class="xl:col-span-2">
+                    <ab-bank-account [userId]="dataUsuario.id" [dataUser]="dataUsuario"></ab-bank-account>
+                </div>
+
+                <div
+                    class="xl:col-span-2 px-6 bg-white rounded-lg border border-gray-200 shadow-md flex flex-col text-center divide-y">
+                    <div class="p-5">
+                        <h2 class="text-xl font-bold">Ingresos y egresos</h2>
+                    </div>
+                    <div class="h-full flex justify-center">
+                        <ab-line-chart class="py-5"></ab-line-chart>
+                    </div>
+                </div>
+                <div
+                    class="px-6 bg-white rounded-lg border border-gray-200 shadow-md flex flex-col items-center divide-y">
+                    <div class="p-5">
+                        <h2 class="text-xl font-bold">Análisis de gastos</h2>
+                    </div>
+                    <div class="h-full w-full py-5">
+                        <ab-pie-chart></ab-pie-chart>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ab-transactions></ab-transactions>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,40 @@
+<div class="p-5 box-shadow px-6 bg-white rounded-lg border border-gray-200 shadow-md shadow-sm tw-shadow flex flex-col items-center divide-y marginTop">
+<mat-form-field appearance="standard">
+  <mat-label>Filtrar</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search columns" #input autocomplete="off">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" >
+
+  <ng-container matColumnDef="first_name">
+    <th mat-header-cell *matHeaderCellDef> Nombre</th>
+    <td  mat-cell *matCellDef="let element"> {{element.first_name}} {{element.last_name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="enviar" >
+    <th mat-header-cell *matHeaderCellDef> Transferir </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button color="primary" (click)="modalTransferir(element.id)">Enviar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator (click)="getUser()"#paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10]"
+              aria-label="Select page"
+              showFirstLastButtons
+              >
+</mat-paginator>
+
+</div>

@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.pointer{
+  cursor: pointer;
+  color: rgb(203, 206, 35);
+}
+
+
+.tittleh2{
+text-align: center
+;}
+
+.marginTop{
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  box-shadow:0 1px 2px 0 var(--tw-shadow-color) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;;
+}
+
+@media (max-width: 1025px){
+  .marginTop{
+    margin-top: 1.2rem;
+  }
+}

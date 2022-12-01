@@ -1,0 +1,41 @@
+<div class="absolute bg-sky-600 h-32 w-full inset-0 -z-10"></div>
+  <div class="presentacion text-center p-7">
+    <h1 class="text-4xl text-white ">Balance</h1>
+    <p class="text-lg text-white">Aquí podrás ver los balances de tus tenencias</p>
+  </div>
+
+  <div class="flex">
+
+    <div class="flex-none w-10"></div>
+
+    <div class="flex-auto w-1/2">
+
+      <mat-card class="ml-4 my-5 ">
+
+        <div style="display:block">
+          <canvas baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [type]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+       </mat-card>
+    </div>
+    <div class="flex-auto pl-20 pt-10 w-34">
+      <mat-card class="grid w-3/6 gap-y-2">
+        <p class="mx-auto">Ver mi balance</p>
+        <hr>
+        <button mat-raised-button class="w-full bg-sky-600 text-white">Pesos</button>
+        <button mat-raised-button class="w-full bg-sky-600 text-white">Dolares</button>
+        <hr>
+        <p class="mx-auto">Comparar tenencias</p>
+        <hr>
+        <button mat-raised-button class="w-full bg-sky-600 text-white">Comparar</button>
+        <span></span>
+      </mat-card>
+    </div>
+  </div>
+

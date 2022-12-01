@@ -1,0 +1,9 @@
+<div class="relative inline-block" *ngIf="isLoggedIn$ | async">
+    <div matRipple class="cursor-pointer rounded-full flex items-center justify-center" [ngClass]="{'w-10 h-10': responsiveIcon === false, 'w-16 h-16': responsiveIcon === true}" [ngStyle]="{'background-color': circleColor}"
+    >
+        <div *ngIf="showInitials">
+            <h2 class="font-medium" [ngClass]="{'text-xl': responsiveIcon === false, 'text-3xl': responsiveIcon === true}" >{{initials}}</h2>
+        </div>
+    </div>
+    <div class="hidden absolute bottom-0 right-[-10px] h-0 w-0 border-x-4 border-x-transparent border-t-[6px] border-t-white lg:block"></div>
+</div>

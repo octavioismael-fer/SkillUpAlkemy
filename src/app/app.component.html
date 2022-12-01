@@ -1,0 +1,5 @@
+<ab-header *ngIf="!(router.url === '/auth/login' || router.url === '/auth/registro')"></ab-header>
+<router-outlet>
+    <ab-titulo *ngIf="!(router.url === '/home')"></ab-titulo>
+</router-outlet>
+<ab-footer *ngIf="!(router.url === '/auth/login' || router.url === '/auth/registro')"></ab-footer>
